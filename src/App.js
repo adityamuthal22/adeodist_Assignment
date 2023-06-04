@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RepoListPage from "./pages/RepoListPage";
 import RepoDetailsPage from "./pages/RepoDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Homepage from "./pages/Homepage";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <NavBar />
       <div className="container mx-auto">
         <Routes>
+        <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/repos" element={<RepoListPage />} />
           <Route path="/repos/:id" element={<RepoDetailsPage />} />
