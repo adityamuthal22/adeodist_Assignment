@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import LoginPage from "./pages/LoginPage";
+import RepoListPage from "./pages/RepoListPage";
+import RepoDetailsPage from "./pages/RepoDetailsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <div className="container mx-auto">
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/repos" element={<RepoListPage />} />
+          <Route path="/repos/:id" element={<RepoDetailsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
